@@ -8,8 +8,10 @@ import Settings from './Settings/Settings';
 export default function Edit(props) {
 	const { setAttributes, attributes, clientId, } = props;
 
+	const isPremium = false;
+
 	return <div {...useBlockProps()}>
-		<Settings attributes={attributes} setAttributes={setAttributes} />
+		<Settings attributes={attributes} setAttributes={setAttributes} isPremium={isPremium} />
 
 		<Style attributes={attributes} mainId={`block-${clientId}`} />
 

@@ -4,7 +4,7 @@ import { PanelBody, TabPanel } from '@wordpress/components';
 import { shapeTabs } from '../../../../utils/options';
 import { ShapePanel } from './ShapePanel';
 
-const Shape = ({ attributes, setAttributes }) => {
+const Shape = ({ attributes, setAttributes, premiumProps }) => {
     const { shape } = attributes;
     const { top, bottom } = shape;
 
@@ -19,6 +19,7 @@ const Shape = ({ attributes, setAttributes }) => {
                     setAttributes={setAttributes}
                     attributes={attributes}
                     name="top"
+                    premiumProps={premiumProps}
                 />
             </>}
 
@@ -31,6 +32,7 @@ const Shape = ({ attributes, setAttributes }) => {
                     setAttributes={setAttributes}
                     attributes={attributes}
                     name="bottom"
+                    premiumProps={premiumProps}
                 />
             </>}
         </>}

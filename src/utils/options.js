@@ -6,11 +6,11 @@ export const shapedOptions = [
   { value: 'asymmetric triangle', label: 'Asymmetric Triangle [Left]' },
   { value: 'abstract paintbrush', label: 'Abstract Paintbrush' },
   { value: 'asymmetric curve', label: 'Asymmetric Curve (Inverted)' },
-  { value: 'cloud', label: 'Cloud (Pro)' },
-  { value: 'mountain', label: 'Mountain (Pro)' },
-  { value: 'fire', label: 'Fire (Pro)' },
-  { value: 'sports', label: 'Sports (Pro)' },
-  { value: 'travel', label: 'Travel (Pro)' },
+  { value: 'cloud', label: 'Cloud' },
+  { value: 'mountain', label: 'Mountain' },
+  { value: 'fire', label: 'Fire' },
+  { value: 'sports', label: 'Sports' },
+  { value: 'travel', label: 'Travel' },
 ];
 
 export const textAlignmentOptions = [

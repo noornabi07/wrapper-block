@@ -1,20 +1,20 @@
 import { __ } from '@wordpress/i18n';
 import { useState } from 'react';
-import { PanelRow, SelectControl, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+import { PanelRow, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+
 import { BColor, Label } from '../../../../../../Components';
+import { SelectControlPro } from '../../../../../../Components/Pro';
 
 import { shapedOptions } from '../../../../utils/options';
 import { updateData } from '../../../../utils/functions';
 import { MediaArea } from '../../Panel/MediaArea/MediaArea';
 import { Device } from '../../Panel/Device/Device';
-import { Premium } from './Premium';
 
 
 export const ShapePanel = ({
     labelPrefix,
     shape,
     setAttributes,
-    attributes,
     uploadSvg,
     type,
     color,
@@ -24,6 +24,7 @@ export const ShapePanel = ({
     isFlip,
     isFront,
     name,
+    premiumProps
 }) => {
     const [device, setDevice] = useState('desktop');
     return <>
@@ -45,14 +46,17 @@ export const ShapePanel = ({
                 />
             </div>
         ) : (
-            <SelectControl
+            <SelectControlPro
                 label={__(`${labelPrefix} Shape Type`, 'container-block')}
                 value={type}
                 options={shapedOptions}
                 onChange={val => setAttributes({ shape: updateData(shape, val, name, "type") })}
+                {...premiumProps}
+                proValues={['cloud', 'mountain', 'fire', 'sports', 'travel']}
             />
         )}
-        {/* <Premium attributes={attributes} /> */}
+
+
         <BColor
             label={__(`${labelPrefix} Shape Color`, 'container-block')}
             value={color}

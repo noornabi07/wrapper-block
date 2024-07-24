@@ -9,7 +9,7 @@ import { alignmentOptions, shapedOptions } from '../../../utils/options';
 import { Device } from '../../Panel/Device/Device';
 import { MediaArea } from '../../Panel/MediaArea/MediaArea';
 import BottomPremium from './BottomPremium';
-import Premium from './Premium';
+import Premium from './TopPremium';
 
 
 const ContentSettings = ({ attributes, setAttributes }) => {

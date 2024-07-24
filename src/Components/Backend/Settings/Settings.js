@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { InspectorControls } from '@wordpress/block-editor';
 import { TabPanel } from '@wordpress/components';
 
 import { tabController } from '../../../../../Components/utils/functions';
+import { AboutPro } from '../../../../../Components/Pro';
 
 import Content from './General/Content';
 import Wrapper from './General/Wrapper';
@@ -10,44 +12,32 @@ import Style from './Style/Style';
 import { generalStyleTabs } from '../../../utils/options';
 
 const Settings = (props) => {
+  const { isPremium } = props;
+  const [isAboutPro, setIsAboutPro] = useState(false);
 
-  return <InspectorControls>
-    <TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs} onSelect={tabController}>{tab => <>
-      {'general' === tab.name && <>
-        <Wrapper {...props} />
+  const premiumProps = { isPremium, setOpen: setIsAboutPro }
 
-        <Content {...props} />
-        <Shape {...props} />
-      </>}
+  return <>
+    <InspectorControls>
+      <TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs} onSelect={tabController}>{tab => <>
+        {'general' === tab.name && <>
+          <Wrapper {...props} />
+
+          <Content {...props} />
+          <Shape {...props} premiumProps={premiumProps} />
+        </>}
 
 
-      {'style' === tab.name && <>
-        <Style {...props} />
-      </>}
-    </>}</TabPanel>
+        {'style' === tab.name && <>
+          <Style {...props} />
+        </>}
+      </>}</TabPanel>
+    </InspectorControls>
 
-    {/* <TabPanel
-      className="bPlTabPanel"
-      activeClass="activeTab"
-      tabs={[
-        {
-          name: 'general',
-          title: 'General',
-          className: 'tab-one',
-        },
-        {
-          name: 'style',
-          title: 'Styles',
-          className: 'tab-two',
-        },
-      ]}>
-      {(tab) => <>
-        {tab.name === 'general' && <ContentSettings attributes={attributes} setAttributes={setAttributes} {...props} />}
-
-        {tab.name === 'style' && <Style attributes={attributes} {...props} />}
-      </>}
-    </TabPanel> */}
-  </InspectorControls>;
+    <AboutPro aboutProOpen={isAboutPro} setAboutProOpen={setIsAboutPro} link=''>
+      <li>Feature 1</li>
+    </AboutPro>
+  </>
 };
 
 export default Settings;

@@ -1,0 +1,71 @@
+$primaryColor: #4527a4;
+
+.wp-block-b-blocks-container {
+}
+
+
+// general style start here
+.wrapper-types {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	justify-content: center;
+	.active {
+		background: #4426ab;
+		color: #fff;
+	}
+}
+
+.wrapper-types button {
+	padding: 10px;
+	cursor: pointer;
+	color: #4426ab;
+	text-transform: capitalize;
+}
+
+.wrapper-types button:hover {
+	background: #4426ab;
+	color: #fff;
+	transition-duration: 0.3s;
+}
+
+// Shaped styles start here
+.shaped-types {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	justify-content: center;
+	.shapedActive {
+		background: #4426ab;
+		color: #fff;
+	}
+}
+.shaped-types button {
+	padding: 10px;
+	cursor: pointer;
+	color: #4426ab;
+}
+
+.shaped-types button:hover {
+	background: #4426ab;
+	color: #fff;
+	transition-duration: 0.3s;
+}
+
+.premium {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fffbda;
+	padding: 3px;
+	font-size: 22px;
+}
+
+.prefixInspectorInfo {
+	padding: 6px;
+
+	a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+}

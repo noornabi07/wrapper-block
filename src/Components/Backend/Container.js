@@ -5,7 +5,7 @@ import { Abstract, AsymmetricCurve, AsymmetricTriangle, OceanWabe, } from '../..
 const Container = ({ attributes }) => {
   const { shape } = attributes;
   const { top, bottom } = shape;
-  const { isUpload, uploadSvg, type } = top;
+  const { isUpload, type } = top;
 
   return (
     <>
@@ -13,9 +13,10 @@ const Container = ({ attributes }) => {
       {
         isUpload ? <div className='topShaped'>
           <SVG
-            src={uploadSvg?.url}
+            src={top?.uploadSvg?.url}
             height=""
             width=""
+            length=""
           />
         </div> : <>
           {
@@ -34,7 +35,7 @@ const Container = ({ attributes }) => {
       {
         bottom.isUpload ? <div className='bottomShaped'>
           <SVG
-            src={bottom?.isUpload?.url}
+            src={bottom?.uploadSvg?.url}
             height=""
             width=""
           />

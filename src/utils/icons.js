@@ -6,7 +6,7 @@ export const blockIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} heig
 	<path fill={iconColor} d='M9.1 7.995a.905.905 0 111.8 0l-.35 3.507a.553.553 0 01-1.1 0L9.1 7.995z'></path>
 </svg>;
 
-export function OceanWabe({ ...props }){
+export function OceanWabe({ ...props }) {
 	return <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1000 100" preserveAspectRatio="none"><g clipPath="url(#eb-shape-divider-ocean-wave)"><path className="eb-shape-divider-fill" fill="currentColor" d="M0 97.79S101.82-.97 283.17 5.23c203.09 0 290.46 94.4 716.83 94.4V0H0v97.79Z"></path></g><defs><clipPath id="eb-shape-divider-ocean-wave"><path fill="#fff" className="eb-shape-divider-fill" d="M0 0h1000v99.62H0z"></path></clipPath></defs></svg>
 }
 
@@ -49,7 +49,7 @@ export function Abstract({ ...props }) {
 			fill="currentColor"
 		/>
 	</svg>
-} 
+}
 
 export function AsymmetricCurve({ ...props }) {
 	return <svg
@@ -65,7 +65,7 @@ export function AsymmetricCurve({ ...props }) {
 			fill="currentColor"
 		/>
 	</svg>
-} 
+}
 
 export function AiFillLock(props) {
 	return <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 1024 1024" height="1em" width="1em" {...props}><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM540 701v53c0 4.4-3.6 8-8 8h-40c-4.4 0-8-3.6-8-8v-53a48.01 48.01 0 1 1 56 0zm152-237H332V240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224z" /></svg>;

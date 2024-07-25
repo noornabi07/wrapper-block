@@ -13,12 +13,13 @@ export const MediaArea = (props) => {
     style,
     className
   } = props;
+  console.log(value)
   return (
     <>
       <div style={style} className={`custom-media-area-component ${className}`}>
         <MediaUpload
           gallery={false}
-          onSelect={(value) => onChange(value)}
+          onSelect={(val) => onChange(val)}
           value={value}
           allowedTypes={types}
           render={({ open }) => (

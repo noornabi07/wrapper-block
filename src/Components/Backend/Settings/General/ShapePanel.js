@@ -40,7 +40,7 @@ export const ShapePanel = ({
                 <MediaArea
                     value={uploadSvg}
                     types="image/svg+xml"
-                    onChange={val => setAttributes({ shape: updateData(shape, val, name, 'uploadSvg', "url") })}
+                    onChange={val => setAttributes({ shape: updateData(shape, val, name, 'uploadSvg') })}
                     height="100%"
                     width="100%"
                 />

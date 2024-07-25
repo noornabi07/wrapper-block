@@ -5,6 +5,8 @@ import './editor.scss';
 import metadata from './block.json';
 import Edit from './Components/Backend/Edit';
 
+
+
 registerBlockType(metadata.name, {
 	icon: {
 		src: 'slides',

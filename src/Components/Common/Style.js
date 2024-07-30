@@ -1,16 +1,15 @@
-import { getBackgroundCSS, getBorderCSS, getMultiShadowCSS } from '../../../../Components/utils/getCSS';
+import { getBorderCSS, getMultiShadowCSS } from '../../../../Components/utils/getCSS';
 import { getBoxCss } from '../../utils/functions';
+import { getBackgroundCSS as getBGCSS } from "../../utils/getCss";
 
 const Style = ({ attributes, mainId }) => {
-  const { wrapper, content, background, paddingColumns, shape } = attributes;
+  const { wrapper, content, paddingColumns, shape, background2 } = attributes;
   const { top, bottom } = shape;
   const { isFlip } = top;
   const { minHeight, border, shadow } = wrapper;
   const { isFullWidth, width, textAlign, color, verticalAlign, horizontalAlign } = content;
   const { normal, hover } = shadow;
   const { normalBorder, hoverBorder, } = border;
-
-
 
   const mainSl = `#${mainId}`;
   const containerSl = `${mainSl} .bBlocksContainer`;
@@ -21,6 +20,8 @@ const Style = ({ attributes, mainId }) => {
   return (
     <style>
       {`
+        ${getBGCSS(background2, containerSl)}
+
         ${mainSl}{
           min-height: ${0 === parseInt(minHeight) ? 'auto' : minHeight};
         }
@@ -29,16 +30,13 @@ const Style = ({ attributes, mainId }) => {
         min-height: ${0 === parseInt(minHeight) ? 'auto' : minHeight};
         ${getBorderCSS(normalBorder)};
         ${getBoxCss(paddingColumns.padding.desktop, "padding")};
-        ${getBackgroundCSS(background.normalBg)};
-        transition: background ${background.normalTransition}s ease-in-out;
         box-shadow:${getMultiShadowCSS(normal)};
         align-items: ${horizontalAlign};
-        justify-content: ${verticalAlign}
+        justify-content: ${verticalAlign};
+        overflow: hidden;
         }
 
       ${containerSl}:hover{
-        ${getBackgroundCSS(background.hoverBg)};
-        transition: background ${background.transition}s ease-in-out, box-shadow ${background.transition}s ease-in-out;
         ${getBorderCSS(hoverBorder)};
         box-shadow:${getMultiShadowCSS(hover)};
         }
@@ -46,7 +44,8 @@ const Style = ({ attributes, mainId }) => {
         ${contentSl}{
           width: ${(isFullWidth || 0 === parseInt(width.desktop)) ? '100%' : width.desktop};
           text-align:${textAlign};
-          color: ${color}
+          color: ${color};
+          z-index:99999;
         }
 
       ${topShaped} svg{

@@ -1,20 +1,20 @@
-import { PanelBody, PanelRow, TabPanel, RangeControl, SelectControl } from '@wordpress/components';
+import { PanelBody, PanelRow, TabPanel } from '@wordpress/components';
 import { Fragment, useState } from '@wordpress/element';
 import { BMultiShadowControl } from 'bpl-gutenberg-panel';
 import { __ } from '@wordpress/i18n';
 import { produce } from 'immer';
 import React from 'react';
-import { Background, BorderControl, Label } from '../../../../../../Components';
+import { BorderControl, Label } from '../../../../../../Components';
 import { updateData } from '../../../../utils/functions';
 import { BBoxControl } from '../../Panel/BBoxControl/BBoxControl';
 import { Device } from '../../Panel/Device/Device';
-import { backgroundTabs, borderTabs } from '../../../../utils/options';
+import { borderTabs } from '../../../../utils/options';
+import { AdvBackground } from '../../Panel/AdvBackground/AdvBackground';
 
 
 const Style = ({ attributes, setAttributes }) => {
-  const { paddingColumns, background, wrapper } = attributes;
+  const { paddingColumns, wrapper,background2 } = attributes;
   const [device, setDevice] = useState('desktop');
-  const { normalBg, hoverBg, transition, normalTransition, blendType } = background;
   const { border, shadow } = wrapper;
   const { normalBorder, hoverBorder } = border;
   const { normal, hover } = shadow;
@@ -33,93 +33,10 @@ const Style = ({ attributes, setAttributes }) => {
         </div>
       </PanelBody>
 
-
-      {/* Background settings */}
+      {/* Background Settings */}
       <PanelBody className='bPlPanelBody' title={__("Background", "b-blocks")} initialOpen={false}>
-        <TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={backgroundTabs}>
-          {tab =>
-            <>
-              {'normal' === tab.name && <>
-                {/* Normal Background */}
-                <Background label={__('Background Color', 'container-block')} value={normalBg} onChange={val => {
-                  const newBg = produce(background, draft => {
-                    draft.normalBg = val
-                  })
-                  setAttributes({ background: newBg })
-                }} defaults={{ color: '#fff' }} />
+        <AdvBackground value={background2} onChange={val => setAttributes({background2:val})} />
 
-                {/* Normal Background Transition */}
-                <div style={{ marginTop: "10px" }}>
-                  <p style={{ marginBottom: "0px" }}>Normal Background Transition</p>
-                  <RangeControl
-                    value={normalTransition}
-                    onChange={val => {
-                      const newTransition = produce(background, draft => {
-                        draft.normalTransition = val
-                      })
-                      setAttributes({ background: newTransition })
-                    }}
-                    step={0.5}
-                    min={0.5}
-                    max={3}
-                  ></RangeControl>
-                </div>
-              </>
-              }
-
-              {'hover' === tab.name && <>
-                {/* Hover  Background */}
-                <Background label={__('Hover Background Color', 'container-block')} value={hoverBg} onChange={val => {
-                  const newBg = produce(background, draft => {
-                    draft.hoverBg = val
-                  })
-                  setAttributes({ background: newBg })
-                }} defaults={{ color: '#fff' }} />
-
-                {/*Hover Background Transition */}
-                <div style={{ marginTop: "10px" }}>
-                  <p style={{ marginBottom: "0px" }}>Hover Background Transition</p>
-                  <RangeControl
-                    value={transition}
-                    onChange={val => {
-                      const newTransition = produce(background, draft => {
-                        draft.transition = val
-                      })
-                      setAttributes({ background: newTransition })
-                    }}
-                    step={0.5}
-                    min={0.5}
-                    max={3}
-                  ></RangeControl>
-                </div>
-
-                <SelectControl
-                  label={__("Blend Mode", "container-block")}
-                  value={blendType}
-                  options={[
-                    { value: 'normal', label: 'Normal' },
-                    { value: 'multiply', label: 'Multiply' },
-                    { value: 'screen', label: 'Screen' },
-                    { value: 'overly', label: 'Overly' },
-                    { value: 'darken', label: 'Darken' },
-                    { value: 'lighten', label: 'Lighten' },
-                    { value: 'color dodge', label: 'Color Dodge' },
-                    { value: 'saturation', label: 'Saturation' },
-                    { value: 'color', label: 'Color' },
-                    { value: 'luminosity', label: 'Luminosity' }
-                  ]}
-                  onChange={(val) => {
-                    const newBlandType = produce(background, draft => {
-                      draft.blendType = val;
-                    })
-                    setAttributes({ background: newBlandType })
-                  }}
-                >
-                </SelectControl>
-              </>}
-
-            </>}
-        </TabPanel>
       </PanelBody>
 
       {/* Border & Shadow Settings */}

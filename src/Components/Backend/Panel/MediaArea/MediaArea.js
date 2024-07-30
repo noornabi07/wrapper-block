@@ -11,9 +11,20 @@ export const MediaArea = (props) => {
     width = '50px',
     label = 'Choose SVG',
     style,
-    className
+    className,
+    isVideo = false
   } = props;
-  console.log(value)
+
+  const def =isVideo? <video style={{height:"inherit",width:"inherit"}} autoPlay>
+    <source src="mov_bbb.mp4" type="video/mp4"/>
+  </video> : <img
+    onClick={open}
+    style={{ height, width }}
+    className="media-area-image"
+    src={value?.url || defaults}
+    alt=""
+  />
+  
   return (
     <>
       <div style={style} className={`custom-media-area-component ${className}`}>
@@ -25,19 +36,7 @@ export const MediaArea = (props) => {
           render={({ open }) => (
             <div className="media-area-container">
               {
-                defaults ? <img
-                  onClick={open}
-                  style={{ height, width }}
-                  className="media-area-image"
-                  src={value?.url || defaults}
-                  alt=""
-                /> : value?.url ? <img
-                  onClick={open}
-                  style={{ height, width }}
-                  className="media-area-image"
-                  src={value?.url || defaults}
-                  alt=""
-                /> : <div className='media-plusBtn-wrapper' onClick={open}>
+                defaults ? def : value?.url ? def : <div className='media-plusBtn-wrapper' onClick={open}>
                   <div className='mediaPlus-btn-circle'>
                     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="mediaPlusBtn" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg>
                   </div>

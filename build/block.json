@@ -145,6 +145,97 @@
         "transition": 0.5,
         "blendType": "normal"
       }
+    },
+    "background2": {
+      "type": "object",
+      "default": {
+        "normal": {
+          "type": "color",
+          "color": "",
+          "gradient": {
+            "type": "linear",
+            "radialType": "ellipse",
+            "colors": [
+              {
+                "color": "#7FD1E5",
+                "position": 0
+              },
+              {
+                "color": "#A152B2",
+                "position": 80
+              }
+            ],
+            "centerPositions": {
+              "x": 0,
+              "y": 0
+            },
+            "angel": 90
+          },
+          "img": {
+            "url": "",
+            "desktop": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            },
+            "tablet": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            },
+            "mobile": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            }
+          },
+          "video": {
+            "url": "",
+            "loop": true
+          }
+        },
+        "hover": {
+          "type": "color",
+          "color": "",
+          "gradient": {
+            "type": "linear",
+            "radialType": "ellipse",
+            "colors": [
+              {
+                "color": "#7FD1E5",
+                "position": 0
+              },
+              {
+                "color": "#A152B2",
+                "position": 80
+              }
+            ],
+            "centerPositions": {
+              "x": 0,
+              "y": 0
+            },
+            "angel": 90
+          },
+          "transition": 0.3,
+          "img": {
+            "url": "",
+            "desktop": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            },
+            "tablet": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            },
+            "mobile": {
+              "position": "center center",
+              "repeat": "no-repeat"
+            }
+          },
+          "video": {
+            "url": "",
+            "loop": false
+          }
+        },
+        "hoverType": "normal"
+      }
     }
   },
   "example": {},

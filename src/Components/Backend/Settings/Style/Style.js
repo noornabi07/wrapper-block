@@ -1,6 +1,6 @@
 import { PanelBody, PanelRow, TabPanel } from '@wordpress/components';
 import { Fragment, useState } from '@wordpress/element';
-import { BMultiShadowControl } from 'bpl-gutenberg-panel';
+import { BMultiShadowControl, AdvOverlay } from 'bpl-gutenberg-panel';
 import { __ } from '@wordpress/i18n';
 import { produce } from 'immer';
 import React from 'react';
@@ -13,7 +13,7 @@ import { AdvBackground } from '../../Panel/AdvBackground/AdvBackground';
 
 
 const Style = ({ attributes, setAttributes }) => {
-  const { paddingColumns, wrapper,background2 } = attributes;
+  const { paddingColumns, wrapper, background2, overlay } = attributes;
   const [device, setDevice] = useState('desktop');
   const { border, shadow } = wrapper;
   const { normalBorder, hoverBorder } = border;
@@ -35,7 +35,11 @@ const Style = ({ attributes, setAttributes }) => {
 
       {/* Background Settings */}
       <PanelBody className='bPlPanelBody' title={__("Background", "b-blocks")} initialOpen={false}>
-        <AdvBackground value={background2} onChange={val => setAttributes({background2:val})} />
+        <AdvBackground value={background2} onChange={val => setAttributes({ background2: val })} />
+        
+
+        {/* Overly */}
+        <AdvOverlay value={overlay} onChange={val => setAttributes({ overlay: val })} />
 
       </PanelBody>
 

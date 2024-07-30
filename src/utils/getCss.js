@@ -175,3 +175,117 @@ export const getBackgroundCSS = (background, selector) => {
   }
   }`.replace(/\s+/g, " ").trim()
 };
+
+
+
+const getOverlayBGCSS = (background) => {
+  const { normal, hover } = background;
+  const { type, color, gradient, img } = normal;
+  const {
+    type: hoverType,
+    color: hoverColor,
+    gradient: hoverGradient,
+    img: hoverImg,
+    transition,
+  } = hover;
+  const bg =
+    type === "color"
+      ? getColor(color)
+      : type === "gradient"
+        ? getGradientCSS(gradient)
+        : type === "image"
+          ? getImageCSS(img).global
+          : "";
+  const hoverBg =
+    hoverType === "color"
+      ? getColor(hoverColor)
+      : hover.type === "gradient"
+        ? getGradientCSS(hoverGradient)
+        : hover.type === "image"
+          ? getImageCSS(hoverImg).global
+          : "";
+  const desktop = type === "image" ? getImageCSS(img).desktop : "";
+  const tablet = type === "image" ? getImageCSS(img).tablet : "";
+  const mobile = type === "image" ? getImageCSS(img).mobile : "";
+  return {
+    normal: {
+      background: bg,
+      desktop,
+      tablet,
+      mobile,
+    },
+    hover: {
+      background: hoverBg,
+      desktop: hoverType === "image" ? getImageCSS(hover.img).desktop : "",
+      tablet: hoverType === "image" ? getImageCSS(hover.img).tablet : "",
+      mobile: hoverType === "image" ? getImageCSS(hover.img).mobile : "",
+    },
+    transition,
+  };
+};
+
+
+
+//overlay
+export const getOverlayCSS = (overlay, selector) => {
+  const {
+    colors,
+    opacity,
+    blend,
+    isCssFilter,
+    blur,
+    brightness,
+    contrast,
+    saturation,
+    hue,
+    isEnabled
+  } = overlay;
+  const { normal, hover } = colors;
+  const {transition} = hover;
+  const filter = isCssFilter
+    ? `filter:brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) blur(${blur}px) hue-rotate(${hue}deg);
+    -webkit-filter:brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) blur(${blur}px) hue-rotate(${hue}deg);` : "";
+  // brightness(100 % ) contrast(100 % ) saturate(100 % ) blur(0.9px) hue - rotate(0deg)
+  // -webkit - filter: brightness(${ brightness } %) contrast(${ contrast } %) saturate(${ saturation } %) blur(${ blur }px) hue - rotate(${ hue }deg);
+  const blendCss = blend ? `mix-blend-mode: ${blend};` : ""
+  const trn = transition ? `transition:all ${transition}s;` : ""
+
+
+  return isEnabled ? `${selector}::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    ${getOverlayBGCSS(colors).normal.background}
+    ${getOverlayBGCSS(colors).normal.desktop}
+    opacity:${opacity};
+    ${blendCss}
+    ${filter}
+    ${trn}
+  }
+
+  ${selector}:hover::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    ${getOverlayBGCSS(colors).hover.background}
+    ${getOverlayBGCSS(colors).hover.desktop}
+  }
+
+  @media only screen and (min-width:641px) and (max-width: 1024px) {
+      ${selector}::after{
+    ${getOverlayBGCSS(colors).normal.tablet}
+  }
+  ${selector}:hover::after{
+    ${getOverlayBGCSS(colors).hover.tablet}
+  }
+  }
+
+  @media only screen and (max-width: 640px) {
+  ${selector}::after{
+    ${getOverlayBGCSS(colors).normal.mobile}
+  }
+  ${selector}:hover::after{
+    ${getOverlayBGCSS(colors).hover.mobile}
+  }
+  }`.replace(/\s+/g, " ").trim() : ""
+};

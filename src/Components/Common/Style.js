@@ -1,9 +1,9 @@
 import { getBorderCSS, getMultiShadowCSS } from '../../../../Components/utils/getCSS';
 import { getBoxCss } from '../../utils/functions';
-import { getBackgroundCSS as getBGCSS } from "../../utils/getCss";
+import { getBackgroundCSS as getBGCSS, getOverlayCSS } from "../../utils/getCss";
 
 const Style = ({ attributes, mainId }) => {
-  const { wrapper, content, paddingColumns, shape, background2 } = attributes;
+  const { wrapper, content, paddingColumns, shape, background2, overlay } = attributes;
   const { top, bottom } = shape;
   const { isFlip } = top;
   const { minHeight, border, shadow } = wrapper;
@@ -21,6 +21,7 @@ const Style = ({ attributes, mainId }) => {
     <style>
       {`
         ${getBGCSS(background2, containerSl)}
+        ${getOverlayCSS(overlay, containerSl)}
 
         ${mainSl}{
           min-height: ${0 === parseInt(minHeight) ? 'auto' : minHeight};

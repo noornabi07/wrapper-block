@@ -1,0 +1,33 @@
+$primaryColor: #4527a4;
+
+.wp-block-b-blocks-container {
+	.premium {
+		display: flex;
+		align-items: center;
+		background: lightgoldenrodyellow;
+		padding: 0px 13px;
+		border-radius: 5px;
+	}
+}
+
+.bPlPanelBody {
+	#tab-panel-1-top-view {
+		.premium {
+			display: flex;
+			align-items: center;
+			background: lightgoldenrodyellow;
+			padding: 0px 13px;
+			border-radius: 5px;
+		}
+	}
+}
+
+
+.prefixInspectorInfo {
+	padding: 6px;
+
+	a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+}

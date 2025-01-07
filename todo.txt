@@ -1,0 +1,34 @@
+1. slug name: b-container-block
+2. prefix: b-blocks, 
+   plugin name: B Container Block
+
+   sort description: A versatile and customizable container block for Gutenberg that allows you to group and style multiple blocks within a single container, enhancing your page layout and design capabilities.
+
+   Lng Description: B Container Block provides a powerful solution for organizing and styling your Gutenberg blocks. With this block, you can group multiple blocks into a single container, giving you the ability to apply consistent styles and settings across all grouped elements.
+
+   Key features include:
+
+    Customizable Styling: Apply unique backgrounds, borders, padding, and margins to your container block for a cohesive look and feel.
+
+    Responsive Design: Ensure your grouped content looks great on all devices with built-in responsive settings.
+
+    Inner Block Support: Easily add and manage nested blocks within the container for complex layouts.
+
+    Reusable Block: Save and reuse your styled container blocks across different pages and posts.
+    Whether you're building intricate layouts or simply looking to keep your content organized, B Container Block offers the flexibility and control you need to create stunning designs in Gutenberg.
+
+
+    keywords: "container", "wrapper", "gutenberg-wrapper", "container-block"
+    text-domain: "b-blocks"
+
+
+
+
+
+
+
+
+
+
+
+    

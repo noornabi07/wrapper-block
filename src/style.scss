@@ -1,0 +1,46 @@
+$primaryColor: #4527a4;
+
+.wp-block-b-blocks-container {
+	* {
+		box-sizing: border-box;
+	}
+
+	.bBlocksContainer {
+		box-sizing: border-box;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+
+		.content {
+			position: relative;
+			max-width: 100%;
+		}
+
+		.topShaped {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+
+			svg {
+				height: auto;
+			}
+		}
+
+		.bottomShaped {
+			svg {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				height: auto;
+			}
+		}
+
+	}
+
+	// .bBlocksContainer:hover{
+	// 	.bpl-video{
+	// 		display: none;
+	// 	}
+	// }
+}
